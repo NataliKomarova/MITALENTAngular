@@ -1,9 +1,9 @@
-<div class="gallery-item" [style.background-image] = "'url(' + itemData.photo + ')'">
+<div class="photo" [style.background-image] = "'url(' + item.photo + ')'" *ngFor = "let item of itemData">
     <div class = "item-inner">
-      <a href="#" class="round-button"></a>
+      <button href="#" class="round-button"><i class="fas fa-arrow-up"></i></button>
       <div class="item-info">
-        <div class="person-name">{{itemData.name}}</div>
-        <div class="person-job"  (click) = "jobClock()">{{itemData.job}}</div>
+        <div class="person-name">{{item.name}}</div>
+        <div class="person-job">{{item.job}}</div>
       </div>
     </div>
   </div>

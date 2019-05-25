@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-first-screen',
@@ -9,13 +9,17 @@ export class FirstScreenComponent implements OnInit {
 
   @ViewChild('videoPlayer') videoPlayer: ElementRef;
 
-  slides = [
-    { id: 1, name: 'Derek Anderson', job: 'BRITISH COMEDIAN', video: '/assets/content/video_1.mp4', poster: '/assets/content/poster_1.jpg', title: 'ENQUIRE ABOUT DEREK' },
-    { id: 2, name: 'Derek Anderson2', job: 'BRITISH COMEDIAN2', video: '/assets/content/video_2.mp4', poster: '/assets/content/poster_2.jpg', title: 'ENQUIRE ABOUT DEREK2' },
-    { id: 3, name: 'Derek Anderson3', job: 'BRITISH COMEDIAN3', video: '/assets/content/video_3.mp4', poster: '/assets/content/poster_3.jpg', title: 'ENQUIRE ABOUT DEREK3' },
-    { id: 4, name: 'Derek Anderson4', job: 'BRITISH COMEDIAN4', video: '/assets/content/video_4.mp4', poster: '/assets/content/poster_4.jpg', title: 'ENQUIRE ABOUT DEREK4' }
-  ];
-  slide: any;
+  @Input() persons: any;
+  @Input() currentPerson: any;
+
+  @Output() changePersonEvent = new EventEmitter<number>();
+  // slides = [
+  //   { id: 1, name: 'Derek Anderson', job: 'BRITISH COMEDIAN', video: '/assets/content/video_1.mp4', poster: '/assets/content/poster_1.jpg', title: 'ENQUIRE ABOUT DEREK' },
+  //   { id: 2, name: 'Derek Anderson2', job: 'BRITISH COMEDIAN2', video: '/assets/content/video_2.mp4', poster: '/assets/content/poster_2.jpg', title: 'ENQUIRE ABOUT DEREK2' },
+  //   { id: 3, name: 'Derek Anderson3', job: 'BRITISH COMEDIAN3', video: '/assets/content/video_3.mp4', poster: '/assets/content/poster_3.jpg', title: 'ENQUIRE ABOUT DEREK3' },
+  //   { id: 4, name: 'Derek Anderson4', job: 'BRITISH COMEDIAN4', video: '/assets/content/video_4.mp4', poster: '/assets/content/poster_4.jpg', title: 'ENQUIRE ABOUT DEREK4' }
+  // ];
+  // slide: any;
   buttonClassPause = false;
   iconClassPlay = true;
   iconClassPause = false;
@@ -24,10 +28,10 @@ export class FirstScreenComponent implements OnInit {
   currentSlide = 0;
   controlActive: boolean[] = [true, false, false, false];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
-    this.slide = this.slides[0];
+    // this.slide = this.currentPerson.mainInfo;
   }
 
   arrowDisable() {
@@ -36,7 +40,7 @@ export class FirstScreenComponent implements OnInit {
     } else {
       this.disableLeftArrow = false;
     }
-    if (this.currentSlide >= this.slides.length-1) {
+    if (this.currentSlide >= this.persons.length-1) {
       this.disableRightArrow = true;
     } else {
       this.disableRightArrow = false;
@@ -67,7 +71,8 @@ export class FirstScreenComponent implements OnInit {
     this.controlActive[this.currentSlide] = false;
     this.currentSlide = isArrow ? this.currentSlide + direction : direction;
     this.controlActive[this.currentSlide] = true;
-    this.slide = this.slides[this.currentSlide];
+    this.changePersonEvent.emit(this.currentSlide);
+    // this.slide = this.slides[this.currentSlide];
     this.arrowDisable();
     this.videoEnded();
   }

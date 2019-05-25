@@ -12,12 +12,27 @@
                     class="fas fa-long-arrow-alt-right"></i></div>
         </div>
     </div>
-    <div class="photo-carousel">
+    <div class="photo-carousel" >
+        <div class="photo-block activePhotoBlock" #photoBlock (mousedown)="carouselMouseDown($event)"
+        (touchstart)="carouselMouseDown($event)" (mouseup)="carouselMouseUp($event)"
+        (touchend)="carouselMouseUp($event)">
+                <app-profile-item [itemData] = itemData.landscapeData appResizeElement></app-profile-item>
+        </div>
+
+        <div class="photo-block activePhotoBlockMob" #photoBlockMob1 (mousedown)="carouselMouseDown($event)"
+        (touchstart)="carouselMouseDown($event)" (mouseup)="carouselMouseUp($event)"
+        (touchend)="carouselMouseUp($event)">
+                <app-profile-item [itemData] = itemData.portraitData1 appResizeElement></app-profile-item>
+        </div><div class="photo-block activePhotoBlockMob" #photoBlockMob2 (mousedown)="carouselMouseDown($event)"
+        (touchstart)="carouselMouseDown($event)" (mouseup)="carouselMouseUp($event)"
+        (touchend)="carouselMouseUp($event)">
+                <app-profile-item [itemData] = itemData.portraitData2 appResizeElement></app-profile-item>
+        </div>
         <ul class="photo-pages flex-container">
-            <li class="photo-page active prev"></li>
-            <li class="photo-page"></li>
-            <li class="photo-page"></li>
-            <li class="photo-page next"></li>
+            <li class="photo-page" [ngClass]="{'active': controlActive[0]}" (click) = photoCarouselAction(0)></li>
+            <li class="photo-page" [ngClass]="{'active': controlActive[1]}" (click) = photoCarouselAction(1)></li>
+            <li class="photo-page" [ngClass]="{'active': controlActive[2]}" (click) = photoCarouselAction(2)></li>
+            <li class="photo-page" [ngClass]="{'active': controlActive[3]}" (click) = photoCarouselAction(3)></li>
         </ul>
     </div>
 </section>

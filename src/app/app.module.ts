@@ -9,6 +9,7 @@ import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { WindowScrollDirective } from './shared/directives/window-scroll.directive';
 
+
 @NgModule({
   declarations: [
     AppComponent,

@@ -217,10 +217,11 @@ $photo-color: #e2e8e8;
     flex-grow: 1;
     height: 100%;
     background-color: $photo-color;
-    // background-image: url("https://vignette.wikia.nocookie.net/gameofthrones/images/9/94/804_Ghost_Profile.png/revision/latest/scale-to-width-down/338?cb=20190506030424");
-    // background-color: $photo-color;
-    // background-position: center;
-    // background-size: auto 100%;
+
+    //background-image: url("https://vignette.wikia.nocookie.net/gameofthrones/images/9/94/804_Ghost_Profile.png/revision/latest/scale-to-width-down/338?cb=20190506030424");
+    background-color: $photo-color;
+    background-position: center;
+    background-size: auto 100%;
 
     @media screen and (orientation: portrait) {
       width: 80%;

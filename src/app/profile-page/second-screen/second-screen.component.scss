@@ -141,12 +141,18 @@ $photo-color: #e2e8e8;
       }
 
       @media screen and (max-width: 1024px) {
-        width: 7em;
+        //width: 7em;
+        width: auto;
+        left: -8px;
+        right: -8px;
+        bottom: -10px;
+        transform: none;
       }
     }
   }
 
   .about-person-content {
+    display: none;
     position: relative;
     top: 12vh;
 
@@ -157,6 +163,10 @@ $photo-color: #e2e8e8;
     @media screen and (orientation: portrait) {
       top: 3vh;
     }
+  }
+
+  .active-tab{
+    display: block;
   }
 
   .content-name {

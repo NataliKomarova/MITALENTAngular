@@ -1,4 +1,4 @@
-<app-first-screen></app-first-screen>
-<app-second-screen></app-second-screen>
-<app-third-screen></app-third-screen>
-<app-forth-screen></app-forth-screen>
+<app-first-screen [persons]="profileItems" [currentPerson]="currentPerson" (changePersonEvent)="changePerson($event)" ></app-first-screen>
+<app-second-screen [currentPerson]="currentPerson"></app-second-screen>
+<app-third-screen [currentPerson]="currentPerson"></app-third-screen>
+<app-forth-screen [itemData] = itemData></app-forth-screen>

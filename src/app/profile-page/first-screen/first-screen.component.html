@@ -3,12 +3,12 @@
     <div class="main-content flex-container">
         <div class="slider-meta">
             <div class="person-info">
-                <h1 class="person-name poppins-regular">{{slide.name}}</h1>
-                <div class="person-job nunito-semibold">{{slide.job}}</div>
+                <h1 class="person-name poppins-regular">{{currentPerson.mainInfo.name}}</h1>
+                <div class="person-job nunito-semibold">{{currentPerson.mainInfo.job}}</div>
             </div>
             <div class="slider-controls">
                 <ul class="slider-pages nunito-extrabold">
-                    <li class="slider-page" *ngFor = "let item of slides; let i = index" [ngClass]="{'active': controlActive[i]}" (click)="doSlide(i)">{{('0'+(i+1)).slice(-2)}}</li>
+                    <li class="slider-page" *ngFor = "let item of persons; let i = index" [ngClass]="{'active': controlActive[i]}" (click)="doSlide(i)">{{('0'+(i+1)).slice(-2)}}</li>
                     <!-- <li class="slider-page" [ngClass]="{'active': controlActive[1]}" (click)="doSlideNum(1)">02</li>
                     <li class="slider-page" [ngClass]="{'active': controlActive[2]}" (click)="doSlideNum(2)">03</li>
                     <li class="slider-page" [ngClass]="{'active': controlActive[3]}" (click)="doSlideNum(3)">04</li> -->
@@ -27,7 +27,7 @@
                 <i class="fas fa-long-arrow-alt-right" [ngClass]="{'disabled': disableRightArrow}" (click)="doSlide(1, true)"></i>
             </div>
             <div class="slide-video">
-                <video src="{{slide.video}}" poster="{{slide.poster}}" class="slide-video-content" #videoPlayer
+                <video src="{{currentPerson.mainInfo.video}}" poster="{{currentPerson.mainInfo.poster}}" class="slide-video-content" #videoPlayer
                     (ended)="videoEnded()">
                 </video>
             </div>
@@ -36,7 +36,7 @@
                 <i id="main-video-control" class="fas"
                     [ngClass]="{'fa-play':iconClassPlay, 'fa-pause':iconClassPause}"></i>
             </div>
-            <div class="slide-title nunito-extrabold">{{slide.title}}</div>
+            <div class="slide-title nunito-extrabold">{{currentPerson.mainInfo.title}}</div>
         </div>
     </div>
 </section>

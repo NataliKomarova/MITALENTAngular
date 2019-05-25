@@ -8,7 +8,7 @@ export class WindowScrollDirective {
   constructor(private el: ElementRef) { }
 
   ngOnInit() {
-    const element: ElementRef = this.el;
+    //const element: ElementRef = this.el;
    window.addEventListener('scroll', () => { this.scroll(); }, true);
   }
 

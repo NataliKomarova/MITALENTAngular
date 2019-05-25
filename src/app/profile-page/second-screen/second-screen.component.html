@@ -1,0 +1,41 @@
+<section class="second-screen flex-container">
+    <div class="photo-slider-control-block" (mousedown)="carouselMouseDown($event)"
+        (touchstart)="carouselMouseDown($event)" (mouseup)="carouselMouseUp($event)"
+        (touchend)="carouselMouseUp($event)">
+        <div class="photo-slider-control">
+            <div class="slider-content-block" #photoBlock>
+                <div class="photo-slider-content" *ngFor="let item of itemData"
+                    [style.background-image]="'url(' + item.photo + ')'"></div>
+            </div>
+            <ul class="photo-pages flex-container">
+                <li class="photo-page" *ngFor="let item of itemData; let i = index" [ngClass]="{'active': controlActive[i]}" (click)="photoCarouselAction(i)"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="about-person">
+        <div class="person-content">
+            <div class="about-person-controls">
+                <ul class="about-person-pages flex-container nunito-extrabold">
+                    <li class="about-person-page" *ngFor="let tabName of tabsTitle; let i = index" [ngClass]="{'active': controlActive[i]}" data-id={{tabName}}>{{tabName}}</li>
+                </ul>
+            </div>
+
+            <div *ngFor="let tabData of tabsData" id={{tabData.tabName}} class="about-person-content">
+                <h2 class="content-name poppins-regular">{{tabData.tabName}}</h2>
+                <div class="content-intro poppins-regular">{{tabData.preview}}</div>
+                <div class="awards nunito-semibold"><i class="far fa-star"></i>{{tabData.award}}</div>
+                <div class="content-text nunito-regular">{{tabData.content}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="social-networks-block">
+        <div class="social-networks flex-container">
+            <a href="https://www.facebook.com/" target="_blank" class="social-network"><i
+                    class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com" target="_blank" class="social-network"><i
+                    class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com" target="_blank" class="social-network"><i class="fab fa-youtube"></i></a>
+            <a href="https://twitter.com" target="_blank" class="social-network"><i class="fab fa-twitter"></i></a>
+        </div>
+    </div>
+</section>

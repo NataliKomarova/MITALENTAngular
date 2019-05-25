@@ -1,0 +1,73 @@
+.flex-container {
+  display: flex;
+  align-items: center;
+}
+
+.link-font {
+  @extend .nunito-extrabold;
+  font-size: 1.3vh;
+  color: $primary-color;
+  text-decoration: unset;
+
+  &:hover {
+    color: rgba(26, 26, 29, 0.5);
+  }
+
+  @media screen and (min-width: 1920px) {
+    font-size: 14px;
+  }
+}
+
+.icon-button {
+  font-size: 1.2vh;
+  border: none;
+  background-color: transparent;
+  outline: unset;
+  padding: 0;
+  cursor: pointer;
+
+  @media screen and (min-width: 1920px) {
+    font-size: 14px;
+  }
+}
+
+.photo-pages {
+  position: absolute;
+  left: 50%;
+  bottom: 2.8vh;
+  transform: translateX(-50%);
+  padding-left: 0;
+  list-style: none;
+  margin: 0;
+
+  @media screen and (min-width: 1920px) {
+    bottom: 30px;
+  }
+}
+
+.photo-page {
+  width: 6px;
+  height: 6px;
+  opacity: 0.5;
+  border-radius: 50%;
+  background-color: #fff;
+  margin-right: 20px;
+  cursor: pointer;
+
+  &.active,
+  &:hover {
+    width: 12px;
+    height: 12px;
+    opacity: 1;
+    margin-right: 14px;
+    border-radius: 6px;
+  }
+}
+
+.photo-page:last-child {
+  margin: 0;
+
+  &:hover {
+    margin-left: -6px;
+  }
+}

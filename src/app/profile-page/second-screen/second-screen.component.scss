@@ -1,0 +1,290 @@
+$primary-color: #1a1a1d;
+$photo-color: #e2e8e8;
+
+.second-screen {
+  height: 110vh;
+  max-height: 1188px;
+  padding: 11vh;
+  position: relative;
+  box-sizing: border-box;
+
+  @media screen and (min-width: 1920px) {
+    padding: 120px;
+    height: 1188px;
+  }
+
+  @media screen and (max-width: 1200px) {
+    padding: 40px;
+  }
+
+  @media screen and (orientation: portrait) {
+    flex-direction: column;
+    padding-bottom: 0;
+    height: unset;
+  }
+
+  .photo-slider-control-block {
+    width: 50%;
+    height: 100%;
+
+    @media screen and (max-width: 1200px) {
+      width: 65%;
+    }
+
+    @media screen and (orientation: portrait) {
+      width: 100%;
+      height: 50vh;
+    }
+  }
+
+  .photo-slider-control {
+    width: 34vw;
+    max-width: 649px;
+    height: 100%;
+    background-color: $photo-color;
+    position: relative;
+    overflow: hidden;
+
+    @media screen and (max-width: 1200px) {
+      width: 50vw;
+    }
+
+    @media screen and (orientation: portrait) {
+      width: 80%;
+      max-width: unset;
+      margin: 0 auto;
+    }
+  }
+
+  .slider-content-block {
+    width: 9999px;
+    height: 100%;
+    transition: margin-left 250ms;
+  }
+
+  .photo-slider-content {
+    display: inline-block;
+    height: 100%;
+    //max-height: 490px;
+    width: 34vw;
+    max-width: 649px;
+    //background-image: url('');
+    background-color: #e2e8e8;
+    background-position: center;
+    background-size: auto 100%;
+  }
+
+  .about-person {
+    height: 100%;
+  }
+
+  .person-content {
+    width: 25vw;
+    max-width: 477px;
+    margin-top: 8vh;
+
+    @media screen and (min-width: 1920px) {
+      margin-top: 90px;
+    }
+
+    @media screen and (orientation: portrait) {
+      width: 100%;
+      margin-top: 7vh;
+      max-width: unset;
+    }
+  }
+
+  .about-person-pages {
+    padding-left: 0;
+    list-style: none;
+    margin: 0;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    font-size: 0.6vw;
+    color: $primary-color;
+    justify-content: space-between;
+
+    @media screen and (min-width: 1920px) {
+      font-size: 12px;
+    }
+
+    @media screen and (orientation: portrait) {
+      font-size: 3vw;
+    }
+  }
+
+  .about-person-page {
+    opacity: 0.7;
+    cursor: pointer;
+    position: relative;
+
+    &.active,
+    &:hover {
+      opacity: 1;
+    }
+
+    &.active:before {
+      content: "";
+      position: absolute;
+      width: 10em;
+      height: 0.2em;
+      background-color: $primary-color;
+      display: inline-block;
+      left: 50%;
+      top: 2.3vh;
+      transform: translateX(-50%);
+
+      @media screen and (min-width: 1920px) {
+        width: 120px;
+        height: 2px;
+        top: 25px;
+      }
+
+      @media screen and (max-width: 1024px) {
+        width: 7em;
+      }
+    }
+  }
+
+  .about-person-content {
+    position: relative;
+    top: 12vh;
+
+    @media screen and (min-width: 1920px) {
+      top: 130px;
+    }
+
+    @media screen and (orientation: portrait) {
+      top: 3vh;
+    }
+  }
+
+  .content-name {
+    font-size: 3vw;
+    color: $primary-color;
+    margin: 0;
+    margin-bottom: 5vh;
+
+    @media screen and (min-width: 1920px) {
+      font-size: 60px;
+      margin-bottom: 34px;
+    }
+
+    @media screen and (orientation: portrait) {
+      // font-size: 24px;
+      // margin-bottom: 10px;
+      display: none;
+    }
+  }
+
+  .content-intro {
+    font-size: 1.3vw;
+    line-height: 1.5;
+    color: $primary-color;
+    margin-bottom: 2.9vh;
+
+    @media screen and (min-width: 1920px) {
+      font-size: 24px;
+      margin-bottom: 31px;
+    }
+
+    @media screen and (orientation: portrait) {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .awards {
+    font-size: 0.8vw;
+    color: $primary-color;
+    margin-bottom: 4.4vh;
+
+    i {
+      margin-right: 1.9vh;
+    }
+
+    @media screen and (min-width: 1920px) {
+      font-size: 16px;
+      margin-bottom: 58px;
+
+      i {
+        margin-right: 20px;
+      }
+    }
+
+    @media screen and (orientation: portrait) {
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .content-text {
+    font-size: 0.8vw;
+    line-height: 1.88;
+    color: #767679;
+
+    @media screen and (min-width: 1920px) {
+      font-size: 16px;
+      margin-bottom: 31px;
+    }
+
+    @media screen and (orientation: portrait) {
+      font-size: 14px;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+  }
+
+  .social-networks-block {
+    position: absolute;
+    right: 5.8vw;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @media screen and (min-width: 1920px) {
+      right: 112px;
+    }
+
+    @media screen and (orientation: portrait) {
+      order: -1;
+      position: static;
+      width: 100vw;
+      margin-bottom: 20px;
+    }
+  }
+
+  .social-networks {
+    padding-left: 0;
+    list-style: none;
+    margin: 0;
+    flex-direction: column;
+
+    @media screen and (orientation: portrait) {
+      font-size: 20px;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
+
+  .social-network {
+    margin-bottom: 3.7vh;
+    text-decoration: unset;
+    color: $primary-color;
+
+    @media screen and (min-width: 1920px) {
+      margin-bottom: 40px;
+    }
+
+    &:hover {
+      color: rgba(26, 26, 29, 0.5);
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @media screen and (orientation: portrait) {
+      margin-bottom: 0;
+    }
+  }
+}

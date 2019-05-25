@@ -1,0 +1,42 @@
+<section class="first-screen">
+    <div class="rectangle-with-bg"></div>
+    <div class="main-content flex-container">
+        <div class="slider-meta">
+            <div class="person-info">
+                <h1 class="person-name poppins-regular">{{slide.name}}</h1>
+                <div class="person-job nunito-semibold">{{slide.job}}</div>
+            </div>
+            <div class="slider-controls">
+                <ul class="slider-pages nunito-extrabold">
+                    <li class="slider-page" *ngFor = "let item of slides; let i = index" [ngClass]="{'active': controlActive[i]}" (click)="doSlide(i)">{{('0'+(i+1)).slice(-2)}}</li>
+                    <!-- <li class="slider-page" [ngClass]="{'active': controlActive[1]}" (click)="doSlideNum(1)">02</li>
+                    <li class="slider-page" [ngClass]="{'active': controlActive[2]}" (click)="doSlideNum(2)">03</li>
+                    <li class="slider-page" [ngClass]="{'active': controlActive[3]}" (click)="doSlideNum(3)">04</li> -->
+                </ul>
+                <div class="slider-arrows">
+                    <i class="fas fa-long-arrow-alt-left slider-left-arrow" [ngClass]="{'disabled': disableLeftArrow}"
+                        (click)="doSlide(-1, true)"></i>
+                    <i class="fas fa-long-arrow-alt-right slider-right-arrow"
+                        [ngClass]="{'disabled': disableRightArrow}" (click)="doSlide(1, true)"></i>
+                </div>
+            </div>
+        </div>
+        <div class="slide-content">
+            <div class="slider-arrows-portrait">
+                <i class="fas fa-long-arrow-alt-left" [ngClass]="{'disabled': disableLeftArrow}" (click)="doSlide(-1, true)"></i>
+                <i class="fas fa-long-arrow-alt-right" [ngClass]="{'disabled': disableRightArrow}" (click)="doSlide(1, true)"></i>
+            </div>
+            <div class="slide-video">
+                <video src="{{slide.video}}" poster="{{slide.poster}}" class="slide-video-content" #videoPlayer
+                    (ended)="videoEnded()">
+                </video>
+            </div>
+            <div class="white-stick"></div>
+            <div class="slide-button" [ngClass]="{'slide-button-pause':buttonClassPause}" (click)="videoAction()">
+                <i id="main-video-control" class="fas"
+                    [ngClass]="{'fa-play':iconClassPlay, 'fa-pause':iconClassPause}"></i>
+            </div>
+            <div class="slide-title nunito-extrabold">{{slide.title}}</div>
+        </div>
+    </div>
+</section>

@@ -1,21 +1,54 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<header class="flex-container"  appWindowScroll>
+    <div class="left-controls">
+        <div class="menu-toggle">
+            <input type="checkbox" />
+            <span class="burger-layer"></span>
+            <span class="burger-layer"></span>
+            <span class="burger-layer"></span>
+            <ul class="burger-menu">
+                <li><a href="#" class="link-font clients-link">CLIENTS</a></li>
+                <li><a href="#" class="link-font">NEWS</a></li>
+            </ul>
+        </div>
+        <!-- <button class="icon-button"><i class="fas fa-bars"></i></button> -->
+        <div class="open-menu">
+            <a href="#" class="link-font clients-link">CLIENTS</a>
+            <a routerLink="/news" class="link-font">NEWS</a>
+        </div>
+    </div>
+    <div class="search-block">
+        <form class="search-controls nunito-extrabold" action="https://www.google.com/search" method="get"
+            target="_blank">
+            <input type="search" name="q" placeholder="Search">
+            <button type="button" class="icon-button search"><i class="fas fa-search"></i></button>
+        </form>
+        <button class="icon-button cancel"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="site-title nunito-extrabold"><a routerLink="">MITALENT</a></div>
+</header>
+
 
 <router-outlet></router-outlet>
+
+
+<footer>
+    <div class="up-block  flex-container">
+        <div class="logo nunito-extrabold">MITALENT</div>
+        <div class="sign-up nunito-semibold">sign up our newsletter<a href="mailto:a@a.ru"><i
+                    class="far fa-envelope"></i></a>
+        </div>
+    </div>
+    <div class="down-block flex-container">
+        <div class="cooperating-info .nunito-regular">© 2018 MI Talent. Designed by Tranmautritam for Mass
+            Impressions.</div>
+        <div class="social-networks flex-container">
+            <a href='https://www.facebook.com/' target="_blank" class="social-network"><i
+                    class="fab fa-facebook"></i></a>
+            <a href='https://www.instagram.com' target="_blank" class="social-network"><i
+                    class="fab fa-instagram"></i></a>
+            <a href='https://www.youtube.com' target="_blank" class="social-network"><i class="fab fa-youtube"></i></a>
+            <a href='https://twitter.com' target="_blank" class="social-network"><i class="fab fa-twitter"></i></a>
+        </div>
+    </div>
+</footer>

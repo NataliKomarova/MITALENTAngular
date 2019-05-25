@@ -1,0 +1,392 @@
+$primary-color: #1a1a1d;
+$photo-color: #e2e8e8;
+
+.first-screen {
+  height: 100vh;
+  max-height: 1080px;
+  position: relative;
+
+  @media screen and (orientation: portrait) {
+    height: auto;
+  }
+
+  .rectangle-with-bg {
+    width: 25vw;
+    max-width: 480px;
+    height: 75vh;
+    max-height: 810px;
+    right: 0;
+    position: absolute;
+    top: 0;
+    background-image: linear-gradient(225deg, #b4d3d3, #d9e7e7);
+
+    @media screen and (orientation: portrait) {
+      display: none;
+    }
+  }
+
+  .main-content {
+    width: 94vw;
+    max-width: 1800px;
+    height: 75vh;
+    max-height: 810px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    @media screen and (orientation: portrait) {
+      width: 100vw;
+      height: unset;
+      max-height: unset;
+      position: static;
+      //top: 4vh;
+      flex-direction: column-reverse;
+    }
+  }
+
+  .slider-meta {
+    width: 25vw;
+    max-width: 480px;
+    height: 100%;
+    position: relative;
+
+    @media screen and (orientation: portrait) {
+      width: 100vw;
+      height: auto;
+    }
+  }
+
+  .person-info {
+    color: $primary-color;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 50%;
+    z-index: 1;
+
+    @media screen and (orientation: portrait) {
+      //top: 4vh;
+      //left: 0;
+      margin-left: 10px;
+      position: static;
+      transform: unset;
+      left: unset;
+    }
+  }
+
+  .person-name {
+    //font-size: 10.5vh;
+    font-size: calc((100vh - 600px) / (1080 - 600) * (101 - 50) + 50px);
+    letter-spacing: 2px;
+    color: $primary-color;
+    max-width: 500px;
+    margin: 0;
+
+    @media screen and (min-width: 1920px) {
+      font-size: 101px;
+    }
+
+    @media screen and (orientation: portrait) {
+      font-size: 32px;
+    }
+  }
+
+  .person-job {
+    margin-top: 3vh;
+    font-size: 1.2vh;
+    text-transform: uppercase;
+    letter-spacing: 3.4px;
+
+    @media screen and (min-width: 1920px) {
+      font-size: 17px;
+      margin-top: 34px;
+    }
+
+    @media screen and (orientation: portrait) {
+      margin-top: 5px;
+    }
+  }
+
+  .slider-controls {
+    position: absolute;
+    left: 0;
+    bottom: 8vh;
+    width: 100%;
+    font-size: 1.1vh;
+
+    @media screen and (min-width: 1920px) {
+      bottom: 88px;
+      font-size: 12px;
+    }
+
+    @media screen and (orientation: portrait) {
+      display: none;
+    }
+  }
+
+  .slider-pages {
+    position: absolute;
+    //font-size: 1.1vh;
+    letter-spacing: 2.4px;
+    left: 3vw;
+    bottom: 0;
+    color: $primary-color;
+    padding-left: 0;
+    list-style: none;
+    margin: 0;
+
+    @media screen and (min-width: 1920px) {
+      left: 62px;
+      font-size: 12px;
+    }
+  }
+
+  .slider-page {
+    opacity: 0.7;
+    margin-top: 4vh;
+    cursor: pointer;
+    position: relative;
+
+    @media screen and (min-width: 1920px) {
+      margin-top: 41px;
+    }
+
+    &.active,
+    &:hover {
+      opacity: 1;
+    }
+
+    &.active:before {
+      content: "";
+      position: absolute;
+      //width: 28px;
+      width: 2em;
+      height: 0.2em;
+      background-color: $primary-color;
+      display: inline-block;
+      left: -3vw;
+      top: 50%;
+      margin-top: -0.2em;
+
+      @media screen and (min-width: 1920px) {
+        left: -62px;
+        width: 28px;
+        height: 2px;
+        margin-top: -2px;
+      }
+    }
+  }
+
+  .slider-arrows {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+
+    @media screen and (orientation: portrait) {
+      display: none;
+    }
+
+    .fa-long-arrow-alt-left {
+      margin-right: 3vw;
+      &.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+
+      @media screen and (min-width: 1920px) {
+        margin-right: 50px;
+      }
+    }
+
+    .fa-long-arrow-alt-right {
+      &.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .slide-content {
+    flex-grow: 1;
+    height: 100%;
+    position: relative;
+    background-color: $photo-color;
+
+    @media screen and (orientation: portrait) {
+      width: 100vw;
+      height: 60vw;
+    }
+  }
+
+  .slide-video {
+    width: 75vw;
+    max-width: 1320px;
+    height: 100%;
+    max-height: 810px;
+    overflow: hidden;
+
+    @media screen and (orientation: portrait) {
+      width: 100vw;
+      //height: 60vw;
+    }
+  }
+
+  .slide-video-content {
+    object-fit: cover;
+    width: 75vw;
+    max-width: 1320px;
+    height: 100%;
+    max-height: 810px;
+    @media screen and (orientation: portrait) {
+      width: 100vw;
+      //height: 60vw;
+    }
+  }
+
+  .slider-arrows-portrait {
+    display: none;
+    z-index: 9;
+
+    @media screen and (orientation: portrait) {
+      display: block;
+      width: 100vw;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      right: 0;
+
+      .fa-long-arrow-alt-left {
+        &.disabled {
+          opacity: 0.5;
+          pointer-events: none;
+        }
+      }
+
+      .fa-long-arrow-alt-right {
+        position: absolute;
+        right: 0;
+
+        &.disabled {
+          opacity: 0.5;
+          pointer-events: none;
+        }
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .white-stick {
+    width: 3vw;
+    max-width: 56px;
+    height: 0.6vh;
+    max-height: 7px;
+    background-color: #fff;
+    position: absolute;
+    top: 25vh;
+    left: 12vw;
+
+    @media screen and (min-width: 1920px) {
+      top: 271px;
+      left: 233px;
+    }
+
+    @media screen and (orientation: portrait) {
+      display: none;
+    }
+  }
+
+  .slide-button {
+    width: 9vh;
+    max-width: 106px;
+    height: 9vh;
+    max-height: 106px;
+    background-color: rgba(255, 255, 255, 1);
+    position: absolute;
+    top: 6vh;
+    right: 6vh;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vh;
+    color: #777;
+
+    @media screen and (min-width: 1920px) {
+      font-size: 34px;
+      top: 70px;
+      right: 70px;
+    }
+
+    @media screen and (orientation: portrait) {
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%);
+      z-index: 10;
+    }
+
+    .fa-play {
+      position: relative;
+      left: 3px;
+
+      @media screen and (max-width: 1280px) {
+        left: 2px;
+      }
+
+      @media screen and (max-width: 800px) {
+        left: 1px;
+      }
+
+      @media screen and (max-width: 400px) {
+        left: 0px;
+      }
+    }
+
+    .fa-pause {
+      opacity: 0.5;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .slide-button-pause {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .slide-title {
+    width: 25vw;
+    max-width: 480px;
+    height: 8vh;
+    max-height: 90px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    line-height: 9vh;
+    text-align: center;
+    color: #87bbbc;
+    font-size: 1vh;
+    letter-spacing: 2.8px;
+    text-transform: uppercase;
+
+    @media screen and (min-width: 1920px) {
+      font-size: 14px;
+      line-height: 90px;
+    }
+
+    @media screen and (orientation: portrait) {
+      line-height: 5.14;
+      width: 50vw;
+      height: 5vh;
+    }
+  }
+}
